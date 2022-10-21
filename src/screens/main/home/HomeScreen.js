@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 
 import {connect} from 'react-redux';
-import LoginPage from '../../../LoginPage';
+import LoginPage from '../../LoginPage';
 
 import RedditPosts from './RedditPostsList';
 

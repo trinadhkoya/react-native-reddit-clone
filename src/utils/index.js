@@ -1,5 +1,3 @@
-import React from 'react';
-
 const postCount = (count) => {
   if (count > 1000) {
     return Math.floor(count / 1000);

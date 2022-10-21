@@ -8,11 +8,13 @@ import {getReadableTime} from '../../utils';
 const PostHeaderSection = (props) => (
   <>
     <View style={styles.subRedditSec}>
-      <Text style={styles.namePrefix}>{`r\\${props.post?.subreddit}`}</Text>
+      <Text style={styles.namePrefix}>
+        {props?.post?.subreddit_name_prefixed}
+      </Text>
     </View>
 
     <View style={styles.authSec}>
-      <Text style={styles.authorText}>{`u\\${props.post?.author}`}</Text>
+      <Text style={styles.authorText}>{props.post?.author_fullname}</Text>
       <Dot />
       <Text style={{color: colors.textSecondary}}>
         {getReadableTime(props.post?.created_utc)}
@@ -40,13 +42,13 @@ const styles = StyleSheet.create({
   authSec: {flexDirection: 'row', alignItems: 'center', lineHeight: 18},
   namePrefix: {
     color: colors.textSecondary,
-    fontSize: 14,
+    fontSize: 15,
     fontWeight: '500',
   },
   authorText: {
     color: colors.textSecondary,
     fontSize: 14,
-    fontWeight: '300',
+    fontWeight: '400',
   },
 });
 export default PostHeaderSection;

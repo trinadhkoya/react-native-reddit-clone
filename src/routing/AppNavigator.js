@@ -1,8 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import MainNavigator from './MainNavigator';
-import {userLogin, userLogout} from '../redux/actions/login.actions';
+import * as LoginActionCreators from '../redux/actions/login.actions';
 import LoginContainer from '../LoginContainer';
+import {bindActionCreators} from 'redux';
 
 const AppNavigator = ({isLoggedIn}) => {
   return isLoggedIn ? <MainNavigator /> : <LoginContainer />;
@@ -15,10 +16,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    login: () => dispatch(userLogin()),
-    logout: () => dispatch(userLogout()),
-  };
+  return bindActionCreators({...LoginActionCreators}, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppNavigator);

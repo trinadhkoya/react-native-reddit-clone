@@ -1,12 +1,26 @@
-import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import React, {useEffect} from 'react';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {colors} from '../../theme/colors';
-import images from '../../res/images';
-import {postCount} from '../../utils';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 import PostHeaderSection from './PostHeaderSection';
+import images from '../../res/images';
+import Video from 'react-native-video';
+import {postCount} from '../../utils';
+import {SCREEN_HT, SCREEN_WIDTH} from '../../screen.utils';
+
+/* Implementation of lodash.get function */
+function getProp(object, keys, defaultVal) {
+  keys = Array.isArray(keys) ? keys : keys.split('.');
+  object = object[keys[0]];
+  if (object && keys.length > 1) {
+    return getProp(object, keys.slice(1));
+  }
+  return object === undefined ? defaultVal : object;
+}
 
 const Post = ({item}) => {
+  const mediaULR = getProp(item?.data, 'media?.reddit_video?.fallback_url');
+  console.log(mediaULR);
+
   return (
     <View style={styles.container}>
       <PostHeaderSection post={item?.data} />
@@ -41,6 +55,21 @@ const Post = ({item}) => {
           <Image source={images.share} style={styles.actionIcon} />
         </>
       </View>
+      <>
+        {/*{!item?.data?.is_video && (*/}
+        {/*  <Video*/}
+        {/*    playWhenInactive*/}
+        {/*    ref={(ref) => {*/}
+        {/*      this.player = ref;*/}
+        {/*    }}*/}
+        {/*    resizeMode={'contain'}*/}
+        {/*    source={{*/}
+        {/*      uri: getProp(item.data, 'media.reddit_video.fallback_url'),*/}
+        {/*    }}*/}
+        {/*    style={styles.backgroundVideo}*/}
+        {/*  />*/}
+        {/*)}*/}
+      </>
     </View>
   );
 };
@@ -49,7 +78,7 @@ export default Post;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.homeScreen.postBackground,
+    backgroundColor: colors.white,
     flex: 1,
     justifyContent: 'center',
     alignContent: 'center',
@@ -59,7 +88,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     paddingBottom: 3,
     color: colors.txtPrimary,
-    fontWeight: '600',
+    fontWeight: '500',
   },
   actionIcon: {
     height: 20,
@@ -93,5 +122,14 @@ const styles = StyleSheet.create({
     color: colors.textSecondary,
     fontSize: 14,
     fontWeight: '300',
+  },
+  backgroundVideo: {
+    height: SCREEN_HT / 3,
+    width: SCREEN_WIDTH,
+    // position: 'absolute',
+    // top: 0,
+    // left: 0,
+    // bottom: 0,
+    // right: 0,
   },
 });

@@ -3,8 +3,8 @@ import {Image, StyleSheet} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {connect} from 'react-redux';
 import images from '../res/images';
-import ProfileScreen from '../containers/main/profile/ProfileScreen';
-import HomeScreen from '../containers/main/home/HomeScreen';
+import ProfileScreen from '../screens/main/profile/ProfileScreen';
+import HomeScreen from '../screens/main/home/HomeScreen';
 
 const TabNavigator = ({navigation, data, isLoggedIn}) => {
   const Tab = createBottomTabNavigator();

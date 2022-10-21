@@ -1,11 +1,12 @@
 import React, {PureComponent} from 'react';
-import LoginPage from './LoginPage';
+import LoginPage from './screens/LoginPage';
 import {handleLogin} from './redux/actions/login.actions';
 import {connect} from 'react-redux';
 import {getProfile} from './redux/actions/profile.actions';
 import {authorize} from 'react-native-app-auth';
 import {config} from './services/reddit.service';
 import {ACCESS_TOKEN, storage} from './utils/storage';
+import PropTypes from 'prop-types';
 
 class LoginContainer extends PureComponent {
   onLogin = async () => {
@@ -14,12 +15,21 @@ class LoginContainer extends PureComponent {
     this.props.doLogin(token.accessToken);
     this.props.doGetUserInfo(token.accessToken);
   };
+
   render() {
     return <LoginPage onPressLogin={this.onLogin} />;
   }
 }
 
-LoginContainer.propTypes = {};
+LoginContainer.propTypes = {
+  doLogin: PropTypes.func,
+  doGetUserInfo: PropTypes.func,
+};
+
+LoginContainer.defaultProps = {
+  doLogin: () => {},
+  doGetUserInfo: () => {},
+};
 
 const mapStateToProps = (state) => {
   return {
