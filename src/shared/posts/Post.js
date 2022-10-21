@@ -1,9 +1,8 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {colors} from '../../theme/colors';
 import PostHeaderSection from './PostHeaderSection';
 import images from '../../res/images';
-import Video from 'react-native-video';
 import {postCount} from '../../utils';
 import {SCREEN_HT, SCREEN_WIDTH} from '../../screen.utils';
 

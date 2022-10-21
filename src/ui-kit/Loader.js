@@ -1,4 +1,4 @@
-import {ActivityIndicator, View,StyleSheet} from 'react-native';
+import {ActivityIndicator, StyleSheet, View} from 'react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
 import {colors} from '../theme/colors';
@@ -13,11 +13,11 @@ const Loader = ({size, isLoading, color}) => {
   );
 };
 
-const styles=StyleSheet.create({
-  container:{
-    paddingVertical:16
-  }
-})
+const styles = StyleSheet.create({
+  container: {
+    paddingVertical: 16,
+  },
+});
 Loader.propTypes = {
   color: PropTypes.string,
   size: PropTypes.string,

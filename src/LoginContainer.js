@@ -27,8 +27,10 @@ LoginContainer.propTypes = {
 };
 
 LoginContainer.defaultProps = {
-  doLogin: () => {},
-  doGetUserInfo: () => {},
+  doLogin: () => {
+  },
+  doGetUserInfo: () => {
+  },
 };
 
 const mapStateToProps = (state) => {
