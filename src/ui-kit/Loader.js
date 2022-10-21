@@ -1,7 +1,7 @@
 import {ActivityIndicator, StyleSheet, View} from 'react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
-import {colors} from '../theme/colors';
+import {Colors} from '../theme/Colors';
 
 const Loader = ({size, isLoading, color}) => {
   return (
@@ -24,7 +24,7 @@ Loader.propTypes = {
   isLoading: PropTypes.bool.isRequired,
 };
 Loader.defaultProps = {
-  color: colors.primaryColor,
-  size: PropTypes.oneOfType('large' || 'small'),
+  color: Colors.primaryColor,
+  size: PropTypes.oneOf(['large' , 'small']),
 };
 export default Loader;

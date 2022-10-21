@@ -1,83 +1,60 @@
 import React from 'react';
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {colors} from '../../theme/colors';
+import {Image, StyleSheet, Text, View} from 'react-native';
+import {Colors} from '../../theme/Colors';
 import PostHeaderSection from './PostHeaderSection';
 import images from '../../res/images';
-import {postCount} from '../../utils';
+import {getProp, postCount} from '../../utils';
 import {SCREEN_HT, SCREEN_WIDTH} from '../../screen.utils';
+import Video from 'react-native-video';
+import IconText from '../../ui-kit/IconText';
 
-/* Implementation of lodash.get function */
-function getProp(object, keys, defaultVal) {
-  keys = Array.isArray(keys) ? keys : keys.split('.');
-  object = object[keys[0]];
-  if (object && keys.length > 1) {
-    return getProp(object, keys.slice(1));
-  }
-  return object === undefined ? defaultVal : object;
-}
 
-const Post = ({item}) => {
-  const mediaULR = getProp(item?.data, 'media?.reddit_video?.fallback_url');
-  console.log(mediaULR);
+const Post = ({item, shouldShow}) => {
+  const mediaULR = getProp(item?.data, 'thumbnail');
 
   return (
     <View style={styles.container}>
       <PostHeaderSection post={item?.data} />
       <Text style={styles.mainTitle}>{item?.data?.title}</Text>
+      <React.Fragment>
+        {shouldShow ? (
+          <Video
+            ref={(ref) => {
+              this.player = ref;
+            }}
+            resizeMode={'contain'}
+            source={{
+              uri: 'https://v.redd.it/cg4wkwi9p2v91/DASH_1080.mp4?source=fallback',
+            }}
+            style={styles.backgroundVideo}
+          />
+        ) : <Image source={{uri: mediaULR}} style={styles.bgMedia} />}
+      </React.Fragment>
 
       <View style={styles.actionIconContainer}>
         <View style={{flexDirection: 'row'}}>
-          <>
-            <Image source={images.upvote} style={styles.actionIcon} />
-            <Text style={styles.actionIconText}>
-              {postCount(item?.data?.ups)}
-            </Text>
-          </>
-
-          <>
-            <Image source={images.downvote} style={styles.actionIcon} />
-            <Text style={styles.actionIconText}>
-              {postCount(item?.data?.downs)}
-            </Text>
-          </>
+          <React.Fragment>
+            <IconText icon={images.upvote} value={postCount(item?.data?.ups)}></IconText>
+            <IconText icon={images.downvote} value={postCount(item?.data?.downs)}></IconText>
+          </React.Fragment>
+          <IconText data={item?.data} icon={images.comment} />
         </View>
-        <>
-          <TouchableOpacity style={{flexDirection: 'row'}}>
-            <Image source={images.comment} style={styles.actionIcon} />
-            <Text style={styles.actionIconText}>
-              {postCount(item?.data?.num_comments)}
-            </Text>
-          </TouchableOpacity>
-        </>
-
-        <>
+        <React.Fragment>
+          <IconText icon={images.comment} value={postCount(item?.data?.num_comments)}></IconText>
+        </React.Fragment>
+        <React.Fragment>
           <Image source={images.share} style={styles.actionIcon} />
-        </>
+        </React.Fragment>
       </View>
-      <>
-        {/*{!item?.data?.is_video && (*/}
-        {/*  <Video*/}
-        {/*    playWhenInactive*/}
-        {/*    ref={(ref) => {*/}
-        {/*      this.player = ref;*/}
-        {/*    }}*/}
-        {/*    resizeMode={'contain'}*/}
-        {/*    source={{*/}
-        {/*      uri: getProp(item.data, 'media.reddit_video.fallback_url'),*/}
-        {/*    }}*/}
-        {/*    style={styles.backgroundVideo}*/}
-        {/*  />*/}
-        {/*)}*/}
-      </>
     </View>
   );
 };
 
-export default Post;
+export default React.memo(Post);
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.white,
+    backgroundColor: Colors.white,
     flex: 1,
     justifyContent: 'center',
     alignContent: 'center',
@@ -86,7 +63,7 @@ const styles = StyleSheet.create({
   mainTitle: {
     fontSize: 18,
     paddingBottom: 3,
-    color: colors.txtPrimary,
+    color: Colors.txtPrimary,
     fontWeight: '500',
   },
   actionIcon: {
@@ -113,22 +90,25 @@ const styles = StyleSheet.create({
   },
   authSec: {flexDirection: 'row', alignItems: 'center', lineHeight: 18},
   namePrefix: {
-    color: colors.textSecondary,
+    color: Colors.textSecondary,
     fontSize: 14,
     fontWeight: '500',
   },
   authorText: {
-    color: colors.textSecondary,
+    color: Colors.textSecondary,
     fontSize: 14,
     fontWeight: '300',
   },
   backgroundVideo: {
-    height: SCREEN_HT / 3,
+    height: SCREEN_HT * 0.2,
     width: SCREEN_WIDTH,
-    // position: 'absolute',
-    // top: 0,
-    // left: 0,
-    // bottom: 0,
-    // right: 0,
+    zIndex: -1,
+    resizeMode: 'cover',
+  },
+  bgMedia: {
+    height: SCREEN_HT * 0.2,
+    width: SCREEN_WIDTH,
+    zIndex: -1,
+    resizeMode: 'cover',
   },
 });

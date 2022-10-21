@@ -1,6 +1,6 @@
 import React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
-import {colors} from '../theme/colors';
+import {Colors} from '../theme/Colors';
 import Button from '../ui-kit/Button';
 import PropTypes from 'prop-types';
 
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    backgroundColor: colors.btnPrimary,
+    backgroundColor: Colors.btnPrimary,
   },
   brandImg: {
     width: '30%',
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   themeText: {
     fontSize: 34,
     fontWeight: 'bold',
-    color: colors.white,
+    color: Colors.white,
   },
 });
 

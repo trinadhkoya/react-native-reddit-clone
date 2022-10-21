@@ -2,7 +2,7 @@ import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
 import {SCREEN_WIDTH} from '../screen.utils';
-import {colors} from '../theme/colors';
+import {Colors} from '../theme/Colors';
 
 const Button = ({onPress, title}) => {
   return (
@@ -28,12 +28,12 @@ const styles = StyleSheet.create({
   container: {
     width: SCREEN_WIDTH * 0.8,
     height: 40,
-    backgroundColor: colors.primaryColor,
+    backgroundColor: Colors.primaryColor,
     justifyContent: 'center',
     borderRadius: 5,
   },
   btnText: {
-    color: colors.btnText,
+    color: Colors.btnText,
     alignSelf: 'center',
     fontWeight: 'bold',
     fontSize: 16,

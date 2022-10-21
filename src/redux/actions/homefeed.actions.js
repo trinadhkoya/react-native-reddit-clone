@@ -9,7 +9,6 @@ const fetchPostsRequest = () => {
 };
 
 const fetchPostsSuccess = (data) => {
-  console.log(data);
   return {
     type: reduxHelper(FETCH_REDDIT_POSTS).actionSuccess,
     payload: data?.children,
@@ -28,7 +27,7 @@ const fetchData = (token) => {
   return (dispatch) => {
     dispatch(fetchPostsRequest());
     axios
-      .get('https://oauth.reddit.com/?raw_json=1', {
+      .get('https://oauth.reddit.com/r/python/hot', {
         headers: {
           Authorization: `Bearer ${token}`,
         },

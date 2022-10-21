@@ -10,11 +10,11 @@ const HomeScreen = ({posts}) => {
   return posts ? <RedditPosts /> : <LoginPage />;
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({homeFeed, login}) => {
   return {
-    posts: state.homeFeed.data,
-    error: state.homeFeed.error,
-    isLoggedIn: state.login.isLoggedIn,
+    posts: homeFeed.data,
+    error: homeFeed.error,
+    isLoggedIn: login.isLoggedIn,
   };
 };
 

@@ -22,5 +22,13 @@ const getReadableTime = (UNIX_timestamp) => {
     return `${year}y`;
   }
 };
-
-export {postCount, getReadableTime};
+/* Implementation of lodash.get function */
+const getProp = (object, keys, defaultVal) => {
+  keys = Array.isArray(keys) ? keys : keys.split('.');
+  object = object[keys[0]];
+  if (object && keys.length > 1) {
+    return getProp(object, keys.slice(1));
+  }
+  return object === undefined ? defaultVal : object;
+};
+export {postCount, getReadableTime,getProp};

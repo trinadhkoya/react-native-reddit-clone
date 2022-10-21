@@ -1,4 +1,4 @@
-const colors = {
+const Colors = {
   primaryColor: '#FF4500',
 
   btnText: '#ffffff',
@@ -12,4 +12,4 @@ const colors = {
 
   iconTint: '#a7a7a7',
 };
-export {colors};
+export {Colors};

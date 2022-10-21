@@ -3,9 +3,10 @@ RedditClone
 
 TODO:
 
-Redux-Saga
-Focus Mode should play the video
-# RN-RedditClient
+Redux-Saga ⎚
+Redux ✅
+Focus Mode should play the video  ✅
+API Client Re-Usable 👨‍💻
 
 ## Simple Reddit client written in RN.
 
@@ -23,6 +24,13 @@ Focus Mode should play the video
     <td><img src="./ScreenShots/1.png" width="300"></td>
     <td><img src="./ScreenShots/2.png" width="300"></td>
     <td><img src="./ScreenShots/3.png" width="300"></td>
+    <td><img src="./ScreenShots/4.png" width="300"></td>
   <tr>
+  <tr>
+      <td><img src="./ScreenShots/1.png" width="300"></td>
+      <td><img src="./ScreenShots/2.png" width="300"></td>
+      <td><img src="./ScreenShots/3.png" width="300"></td>
+      <td><img src="./ScreenShots/4.png" width="300"></td>
+    <tr>
 
 </table>

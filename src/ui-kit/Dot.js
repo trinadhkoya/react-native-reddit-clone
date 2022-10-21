@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {colors} from '../theme/colors';
+import {Colors} from '../theme/Colors';
 
 const Dot = () => <View style={styles.container} />;
 
@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     width: 4,
     height: 4,
     marginHorizontal: 3,
-    backgroundColor: colors.textSecondary,
+    backgroundColor: Colors.textSecondary,
     borderRadius: 2,
   },
 });
