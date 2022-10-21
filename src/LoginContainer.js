@@ -1,7 +1,6 @@
 import React, {PureComponent} from 'react';
 import LoginPage from './LoginPage';
 import {handleLogin} from './redux/actions/login.actions';
-import {fetchData} from './redux/actions/homefeed.actions';
 import {connect} from 'react-redux';
 import {getProfile} from './redux/actions/profile.actions';
 import {authorize} from 'react-native-app-auth';
@@ -14,7 +13,6 @@ class LoginContainer extends PureComponent {
     storage.set(ACCESS_TOKEN, token.accessToken);
     this.props.doLogin(token.accessToken);
     this.props.doGetUserInfo(token.accessToken);
-    // this.props.doFetchPosts(token.accessToken);
   };
   render() {
     return <LoginPage onPressLogin={this.onLogin} />;
@@ -34,8 +32,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     doLogin: (data) => dispatch(handleLogin(data)),
     doGetUserInfo: (token) => dispatch(getProfile(token)),
-    doFetchPosts: (afterKey, dataJson, token) =>
-      dispatch(fetchData(afterKey, dataJson, token)),
   };
 };
 

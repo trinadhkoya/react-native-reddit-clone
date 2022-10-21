@@ -12,7 +12,7 @@ const MainNavigator = () => {
         name="Tab Navigator"
         component={TabNavigator}
         options={{
-          headerTitle: 'Home',
+          headerTitle: 'TITLE',
           headerShown: true,
         }}
       />

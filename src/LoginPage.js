@@ -4,7 +4,7 @@ import {colors} from './theme/colors';
 import Button from './ui-kit/Button';
 import PropTypes from 'prop-types';
 
-const LoginPage = (props) => {
+const LoginPage = ({onPressLogin}) => {
   return (
     <View style={styles.container}>
       <Image
@@ -12,7 +12,7 @@ const LoginPage = (props) => {
         style={styles.brandImg}
       />
       <Text style={styles.themeText}>Dive into anything</Text>
-      <Button title={'Login with reddit'} onPress={props.onPressLogin} />
+      <Button title={'Login with reddit'} onPress={onPressLogin} />
     </View>
   );
 };

@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import MainNavigator from './containers/main/MainNavigator';
-import {userLogin, userLogout} from './redux/actions/login.actions';
-import LoginContainer from './LoginContainer';
+import MainNavigator from './MainNavigator';
+import {userLogin, userLogout} from '../redux/actions/login.actions';
+import LoginContainer from '../LoginContainer';
 
-const AppNavigator = ({isLoggedIn, logout}) => {
+const AppNavigator = ({isLoggedIn}) => {
   return isLoggedIn ? <MainNavigator /> : <LoginContainer />;
 };
 
