@@ -3,7 +3,7 @@ import {Image, View} from 'react-native';
 
 const ProfilePicture = ({data}) => {
   var url = '';
-  if (data.subreddit != undefined) {
+  if (data.subreddit !== undefined) {
     url = data.subreddit.icon_img;
     return (
       <View style={{justifyContent: 'center', alignSelf: 'center'}}>

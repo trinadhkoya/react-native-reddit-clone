@@ -6,15 +6,15 @@ import {connect} from 'react-redux';
 import {getProfile} from './redux/actions/profile.actions';
 import {authorize} from 'react-native-app-auth';
 import {config} from './services/reddit.service';
-import axios from 'axios';
+import {ACCESS_TOKEN, storage} from './utils/storage';
 
 class LoginContainer extends PureComponent {
   onLogin = async () => {
     const token = await authorize(config);
-    axios.defaults.headers.Authorization = `Bearer ${token.accessToken}`;
+    storage.set(ACCESS_TOKEN, token.accessToken);
     this.props.doLogin(token.accessToken);
     this.props.doGetUserInfo(token.accessToken);
-    this.props.doFetchPosts(token.accessToken);
+    // this.props.doFetchPosts(token.accessToken);
   };
   render() {
     return <LoginPage onPressLogin={this.onLogin} />;

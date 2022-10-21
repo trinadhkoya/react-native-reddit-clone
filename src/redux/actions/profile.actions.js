@@ -22,11 +22,15 @@ const fetchProfileFailed = (error) => {
   };
 };
 
-const getProfile = () => {
+const getProfile = (token) => {
   return (dispatch) => {
     dispatch(fetchProfileRequest());
     axios
-      .get('https://oauth.reddit.com/api/v1/me')
+      .get('https://oauth.reddit.com/api/v1/me', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((res) => {
         dispatch(fetchProfileSuccess(res.data));
       })

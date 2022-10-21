@@ -12,8 +12,8 @@ const MainNavigator = () => {
         name="Tab Navigator"
         component={TabNavigator}
         options={{
-          headerTitle: '',
-          headerShown: false,
+          headerTitle: 'Home',
+          headerShown: true,
         }}
       />
     </Stack.Navigator>

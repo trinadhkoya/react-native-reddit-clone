@@ -1,23 +1,20 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import {connect} from 'react-redux';
 import LoginPage from '../../../LoginPage';
 
 import RedditPosts from './RedditPostsList';
 
-const HomeScreen = ({dataJson, isLoggedIn}) => {
-  return dataJson?.length !== 0 && isLoggedIn === true ? (
-    <RedditPosts />
-  ) : (
-    <LoginPage />
-  );
+const HomeScreen = ({posts}) => {
+  useEffect(() => {}, [posts]);
+  return posts ? <RedditPosts /> : <LoginPage />;
 };
 
-const mapStateToProps = ({homeFeed, login}) => {
+const mapStateToProps = (state) => {
   return {
-    dataJson: homeFeed.data,
-    error: homeFeed.error,
-    isLoggedIn: login.isLoggedIn,
+    posts: state.homeFeed.data,
+    error: state.homeFeed.error,
+    isLoggedIn: state.login.isLoggedIn,
   };
 };
 

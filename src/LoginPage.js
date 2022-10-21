@@ -20,9 +20,7 @@ const LoginPage = (props) => {
 LoginPage.propTypes = {
   onPressLogin: PropTypes.func.isRequired,
 };
-LoginPage.defaultProps = {
-  onPressLogin: () => {},
-};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

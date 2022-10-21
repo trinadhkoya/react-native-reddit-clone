@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {getProfile} from '../../../redux/actions/profile.actions';
+import * as profileActionCreators from '../../../redux/actions/profile.actions';
 import ProfileHeader from './ProfileHeader';
+import {bindActionCreators} from 'redux';
 
 const ProfileScreen = ({data}) => {
   return <ProfileHeader data={data} />;
@@ -9,21 +10,17 @@ const ProfileScreen = ({data}) => {
 
 const mapStateToProps = (state) => {
   return {
-    data: state.aboutUser.data,
-    postsData: state.myPosts.data,
-    loading: state.aboutUser.loading,
-    error: state.aboutUser.error,
+    data: state.profile.data,
+    loading: state.profile.loading,
+    error: state.profile.error,
     token: state.login.accessToken,
     isLoggedIn: state.login.isLoggedIn,
-    userData: state.aboutUser.data,
-    afterKey: state.myPosts.after,
+    userData: state.profile.data,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchUserData: (token) => dispatch(getProfile(token)),
-  };
+  return bindActionCreators({...profileActionCreators}, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfileScreen);
