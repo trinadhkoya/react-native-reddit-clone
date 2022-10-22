@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import TabNavigator from './TabNavigator';
+import DashBoardTabs from './TabNavigator';
 
 const Stack = createStackNavigator();
 
@@ -9,12 +9,11 @@ const MainNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Tab Navigator"
-        component={TabNavigator}
-        options={{
-          headerTitle: 'TITLE',
-          headerShown: true,
+        screenOptions={{
+          headerShown: false,
         }}
+        name='Home'
+        component={DashBoardTabs}
       />
     </Stack.Navigator>
   );

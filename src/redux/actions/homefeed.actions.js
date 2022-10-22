@@ -1,6 +1,6 @@
-import axios from 'axios';
 import {reduxHelper} from '../utils/redux-helper';
 import {FETCH_REDDIT_POSTS} from './types';
+import {RedditAPIClient} from '../../services/reddit-a-p-i-client';
 
 const fetchPostsRequest = () => {
   return {
@@ -23,15 +23,10 @@ const fetchPostsFailed = (error) => {
   };
 };
 
-const fetchData = (token) => {
+const fetchData = () => {
   return (dispatch) => {
     dispatch(fetchPostsRequest());
-    axios
-      .get('https://oauth.reddit.com/r/python/hot', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+    RedditAPIClient.get('/r/python/hot')
       .then((res) => {
         dispatch(fetchPostsSuccess(res?.data?.data));
       })

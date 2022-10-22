@@ -1,6 +1,6 @@
 import {reduxHelper} from '../utils/redux-helper';
 import {FETCH_USER_INFO} from './types';
-import axios from 'axios';
+import {RedditAPIClient} from '../../services/reddit-a-p-i-client';
 
 const fetchProfileRequest = () => {
   return {
@@ -22,15 +22,10 @@ const fetchProfileFailed = (error) => {
   };
 };
 
-const getProfile = (token) => {
+const getProfile = () => {
   return (dispatch) => {
     dispatch(fetchProfileRequest());
-    axios
-      .get('https://oauth.reddit.com/api/v1/me', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+    RedditAPIClient.get('api/v1/me')
       .then((res) => {
         dispatch(fetchProfileSuccess(res.data));
       })

@@ -13,7 +13,7 @@ class LoginContainer extends PureComponent {
     const token = await authorize(config);
     storage.set(ACCESS_TOKEN, token.accessToken);
     this.props.doLogin(token.accessToken);
-    this.props.doGetUserInfo(token.accessToken);
+    this.props.doGetUserInfo();
   };
 
   render() {
@@ -43,7 +43,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     doLogin: (data) => dispatch(handleLogin(data)),
-    doGetUserInfo: (token) => dispatch(getProfile(token)),
+    doGetUserInfo: () => dispatch(getProfile()),
   };
 };
 

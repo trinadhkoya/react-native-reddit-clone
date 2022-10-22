@@ -5,7 +5,8 @@ import AppNavigator from './src/routing/AppNavigator';
 import {NavigationContainer} from '@react-navigation/native';
 import {LogBox} from 'react-native';
 
-LogBox.ignoreAllLogs();
+LogBox.ignoreAllLogs()
+
 
 const App = () => {
   return (

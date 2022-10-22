@@ -5,21 +5,22 @@ const postCount = (count) => {
     return count;
   }
 };
+
 const getReadableTime = (UNIX_timestamp) => {
   const a = new Date(UNIX_timestamp * 1000);
   const b = new Date().getTime();
   const value = Math.floor(Math.abs(b - a) / 3600000);
   if (Math.floor(value < 24)) {
-    return `${value}h`;
+    return `${value}hr`;
   } else if (value / 24 >= 1 && value / 24 <= 30) {
     const day = Math.floor(value / 24);
-    return `${day}d`;
+    return `${day}day`;
   } else if (value / 24 > 30 && value / 24 <= 365) {
     const month = Math.floor(value / (24 * 30));
-    return `${month}mo`;
+    return `${month}month`;
   } else {
     const year = Math.floor(value / (24 * 30 * 12));
-    return `${year}y`;
+    return `${year}yr`;
   }
 };
 /* Implementation of lodash.get function */
@@ -31,4 +32,5 @@ const getProp = (object, keys, defaultVal) => {
   }
   return object === undefined ? defaultVal : object;
 };
-export {postCount, getReadableTime,getProp};
+
+export {postCount, getReadableTime, getProp};
