@@ -113,7 +113,6 @@ const styles = StyleSheet.create({
     height: SCREEN_HT * 0.2,
     width: SCREEN_WIDTH,
     zIndex: -1,
-    resizeMode: 'cover',
   },
   bgMedia: {
     height: SCREEN_HT * 0.2,

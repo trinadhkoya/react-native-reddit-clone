@@ -25,7 +25,7 @@ const HomeScreen = (props) => {
   }, []);
 
   const renderListFooter = () => (
-    <Loader isLoading={props.isLoading} color={Colors.primaryColor} />
+    <Loader isLoading={props.isLoading} size={'large'} color={Colors.primaryColor} />
   );
 
   return (

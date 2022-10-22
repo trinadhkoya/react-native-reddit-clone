@@ -17,7 +17,7 @@ const IconText = props => {
 };
 IconText.propTypes = {
   icon: PropTypes.number,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string,PropTypes.number]),
 };
 IconText.defaultProps = {
   icon: images.home,

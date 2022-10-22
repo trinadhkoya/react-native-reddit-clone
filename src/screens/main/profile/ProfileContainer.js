@@ -18,7 +18,7 @@ function ProfileContainer({dispatch, isLoading, profile}) {
   }, []);
 
   if (isLoading) {
-    return <Loader isLoading={isLoading}></Loader>;
+    return <Loader isLoading={isLoading} size={'large'}></Loader>;
   }
   return <ProfileScreen profile={profile} {...boundActionCreators}></ProfileScreen>;
 };

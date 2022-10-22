@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
 });
 Loader.propTypes = {
   color: PropTypes.string,
-  size: PropTypes.string,
+  size: PropTypes.string.isRequired,
   isLoading: PropTypes.bool.isRequired,
 };
 Loader.defaultProps = {

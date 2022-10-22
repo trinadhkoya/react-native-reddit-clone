@@ -13,7 +13,7 @@ const HeadDesc = (props) => {
 
 HeadDesc.propTypes = {
   headerName: PropTypes.string.isRequired,
-  headerValue: PropTypes.string.isRequired,
+  headerValue: PropTypes.oneOfType([PropTypes.string,PropTypes.number]).isRequired,
 };
 const styles = StyleSheet.create({
   container: {
