@@ -1,6 +1,6 @@
 import {reduxHelper} from '../utils/redux-helper';
 import {FETCH_USER_INFO} from './types';
-import {RedditAPIClient} from '../../services/reddit-a-p-i-client';
+import ProfileServices from '../../services/profile.service';
 
 const fetchProfileRequest = () => {
   return {
@@ -22,18 +22,19 @@ const fetchProfileFailed = (error) => {
   };
 };
 
-const getProfile = () => {
-  return (dispatch) => {
-    dispatch(fetchProfileRequest());
-    RedditAPIClient.get('api/v1/me')
-      .then((res) => {
-        dispatch(fetchProfileSuccess(res.data));
-      })
-      .catch((error) => {
-        dispatch(fetchProfileFailed(error));
-      });
-  };
+
+
+const getProfile = () => async (dispatch) => {
+  dispatch(fetchProfileRequest());
+  try {
+    const res = await ProfileServices.getProfile();
+    dispatch(fetchProfileSuccess(res));
+  } catch (err) {
+    dispatch(fetchProfileFailed(err));
+  }
 };
+
+
 
 export {
   fetchProfileRequest,

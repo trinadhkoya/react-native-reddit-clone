@@ -1,6 +1,6 @@
+const axios = require('axios');
 import {storage} from '../utils/storage';
 
-const axios = require('axios');
 const BASE_URL = 'https://oauth.reddit.com/';
 
 const HEADERS = {
@@ -8,18 +8,17 @@ const HEADERS = {
   'Accept': 'application/json',
 };
 
-
-const RedditAPIClient = axios.create({
+const HTTPClient = axios.create({
   baseURL: BASE_URL,
   headers: HEADERS,
 });
 
-RedditAPIClient.interceptors.request.use(config => {
+HTTPClient.interceptors.request.use(config => {
   const token = storage.getString('ACCESS_TOKEN');
   config.headers.Authorization = token ? `Bearer ${token}` : '';
   return config;
 });
-RedditAPIClient.interceptors.response.use(
+HTTPClient.interceptors.response.use(
   function(response) {
     return response;
   },
@@ -34,4 +33,4 @@ RedditAPIClient.interceptors.response.use(
 );
 
 
-export {RedditAPIClient};
+export {HTTPClient};

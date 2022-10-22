@@ -1,4 +1,4 @@
-import {FETCH_REDDIT_POSTS} from '../actions/types';
+import {FETCH_POSTS} from '../actions/types';
 import {reduxHelper} from '../utils/redux-helper';
 
 const initialState = {
@@ -10,12 +10,12 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case reduxHelper(FETCH_REDDIT_POSTS).actionRequest:
+    case reduxHelper(FETCH_POSTS).actionRequest:
       return {
         ...state,
         loading: true,
       };
-    case reduxHelper(FETCH_REDDIT_POSTS).actionSuccess:
+    case reduxHelper(FETCH_POSTS).actionSuccess:
       return {
         ...state,
         loading: false,
@@ -23,7 +23,7 @@ export default (state = initialState, action) => {
         after: action.after,
         error: '',
       };
-    case reduxHelper(FETCH_REDDIT_POSTS).actionFailure:
+    case reduxHelper(FETCH_POSTS).actionFailure:
       return {
         ...state,
         loading: false,

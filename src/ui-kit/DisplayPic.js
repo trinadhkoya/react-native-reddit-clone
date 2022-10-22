@@ -6,7 +6,8 @@ import PropTypes from 'prop-types';
 const PLACEHOLDER_IMG = 'https://www.redditstatic.com/avatars/defaults/v2/avatar_default_3.png';
 
 const DisplayPic = ({avatarInfo}) => {
-  const avatarURL = getProp(avatarInfo, 'subreddit.icon_img', PLACEHOLDER_IMG);
+  console.log(avatarInfo);
+  const avatarURL = getProp(avatarInfo, 'subreddit?.icon_img', PLACEHOLDER_IMG);
   const userName = getProp(avatarInfo, 'name', 'Guest');
 
   return (
