@@ -23,9 +23,9 @@ IconText.defaultProps = {
   icon: images.home,
   value: '',
 };
-const styles=StyleSheet.create({
-  container:{
-    flexDirection:'row',justifyContent:'center'
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row', justifyContent: 'center',
   },
   actionIconText: {
     paddingHorizontal: 5,
@@ -37,6 +37,6 @@ const styles=StyleSheet.create({
     width: 20,
     tintColor: '#a7a7a7',
   },
-})
+});
 
 export default IconText;

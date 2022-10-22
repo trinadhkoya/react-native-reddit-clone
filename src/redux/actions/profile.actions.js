@@ -8,10 +8,10 @@ const fetchProfileRequest = () => {
   };
 };
 
-const fetchProfileSuccess = (data) => {
+const fetchProfileSuccess = (res) => {
   return {
     type: reduxHelper(FETCH_USER_INFO).actionSuccess,
-    payload: data,
+    payload: res,
   };
 };
 

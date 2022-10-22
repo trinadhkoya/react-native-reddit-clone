@@ -23,10 +23,10 @@ const fetchPostsFailed = (error) => {
   };
 };
 
-const fetchData = () => {
+const fetchPosts = () => {
   return (dispatch) => {
     dispatch(fetchPostsRequest());
-    RedditAPIClient.get('/r/python/hot')
+    RedditAPIClient.get('/r/videos/hot')
       .then((res) => {
         dispatch(fetchPostsSuccess(res?.data?.data));
       })
@@ -36,4 +36,4 @@ const fetchData = () => {
   };
 };
 
-export {fetchPostsFailed, fetchPostsRequest, fetchPostsSuccess, fetchData};
+export {fetchPostsFailed, fetchPostsRequest, fetchPostsSuccess, fetchPosts};

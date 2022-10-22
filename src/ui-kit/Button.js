@@ -21,7 +21,8 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  onPress: () => {},
+  onPress: () => {
+  },
 };
 
 const styles = StyleSheet.create({

@@ -3,10 +3,10 @@ import {Image, StyleSheet} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {connect} from 'react-redux';
 import images from '../res/images';
-import ProfileScreen from '../screens/main/profile/ProfileScreen';
-import HomeScreen from '../screens/main/home/HomeScreen';
+import HomeScreen from '../screens/main/home/HomeScreenContainer';
 import {Colors} from '../theme/Colors';
 import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
+import ProfileContainer from '../screens/main/profile/ProfileContainer';
 
 const TabNavigator = ({navigation, profile, isLoggedIn}) => {
   const Tab = createBottomTabNavigator();
@@ -59,7 +59,7 @@ const TabNavigator = ({navigation, profile, isLoggedIn}) => {
         component={HomeScreen} />
       <Tab.Screen
         name='Profile'
-        component={ProfileScreen}
+        component={ProfileContainer}
         options={({route}) => ({
           headerTitle: userName ? userName : getHeaderTitle(route),
         })}
@@ -74,10 +74,10 @@ const styles = StyleSheet.create({
   tabBar: {backgroundColor: '#fff', flexWrap: 'wrap'},
 });
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({login, profile}) => {
   return {
-    isLoggedIn: state.login.isLoggedIn,
-    profile: state.profile.data,
+    isLoggedIn: login.isLoggedIn,
+    profile: profile.data,
   };
 };
 

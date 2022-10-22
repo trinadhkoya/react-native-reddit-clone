@@ -1,21 +1,18 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import * as profileActionCreators from '../../../redux/actions/profile.actions';
-import {bindActionCreators} from 'redux';
 import {StyleSheet, View} from 'react-native';
+import DisplayPic from '../../../ui-kit/DisplayPic';
 import HeadDesc from '../../../ui-kit/HeadDesc';
 import {getReadableTime} from '../../../utils';
-import DisplayPic from '../../../ui-kit/DisplayPic';
 
-const ProfileScreen = ({data}) => {
+const ProfileScreen = ({profile}) => {
   return (
     <View style={{flexDirection: 'column'}}>
       <React.Fragment>
-        <DisplayPic avatarInfo={data} />
+        <DisplayPic avatarInfo={profile} />
         <View style={styles.karmaContainer}>
-          <HeadDesc headerName={'Post'} headerValue={data?.link_karma} />
-          <HeadDesc headerName={'Comments'} headerValue={data?.comment_karma} />
-          <HeadDesc headerName={'Age'} headerValue={getReadableTime(data?.created_utc)} />
+          <HeadDesc headerName={'Post'} headerValue={profile?.link_karma} />
+          <HeadDesc headerName={'Comments'} headerValue={profile?.comment_karma} />
+          <HeadDesc headerName={'Age'} headerValue={getReadableTime(profile?.created_utc)} />
         </View>
       </React.Fragment>
     </View>
@@ -31,15 +28,5 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = ({profile}) => {
-  return {
-    loading: profile.loading,
-    data: profile.data,
-  };
-};
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({...profileActionCreators}, dispatch);
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileScreen);
+export default ProfileScreen;

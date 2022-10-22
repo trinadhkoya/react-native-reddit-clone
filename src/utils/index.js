@@ -1,3 +1,8 @@
+/**
+ *
+ * @param count
+ * @returns {number|*}
+ */
 const postCount = (count) => {
   if (count > 1000) {
     return Math.floor(count / 1000);
@@ -6,6 +11,11 @@ const postCount = (count) => {
   }
 };
 
+/**
+ *
+ * @param UNIX_timestamp
+ * @returns {`${number}hr`|`${number}month`|`${number}day`|`${number}yr`}
+ */
 const getReadableTime = (UNIX_timestamp) => {
   const a = new Date(UNIX_timestamp * 1000);
   const b = new Date().getTime();
@@ -23,7 +33,13 @@ const getReadableTime = (UNIX_timestamp) => {
     return `${year}yr`;
   }
 };
-/* Implementation of lodash.get function */
+/**
+ * Implementation of lodash.get function
+ * @param object
+ * @param keys
+ * @param defaultVal
+ * @returns {*}
+ */
 const getProp = (object, keys, defaultVal) => {
   keys = Array.isArray(keys) ? keys : keys.split('.');
   object = object[keys[0]];

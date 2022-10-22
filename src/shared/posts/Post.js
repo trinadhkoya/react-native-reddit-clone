@@ -3,32 +3,42 @@ import {Image, StyleSheet, Text, View} from 'react-native';
 import {Colors} from '../../theme/Colors';
 import PostHeaderSection from './PostHeaderSection';
 import images from '../../res/images';
-import {getProp, postCount} from '../../utils';
+import {postCount} from '../../utils';
 import {SCREEN_HT, SCREEN_WIDTH} from '../../screen.utils';
 import Video from 'react-native-video';
 import IconText from '../../ui-kit/IconText';
 
 
 const Post = ({item, shouldShow}) => {
-  const mediaULR = getProp(item?.data, 'thumbnail');
 
   return (
     <View style={styles.container}>
       <PostHeaderSection post={item?.data} />
       <Text style={styles.mainTitle}>{item?.data?.title}</Text>
       <React.Fragment>
-        {shouldShow ? (
-          <Video
-            ref={(ref) => {
-              this.player = ref;
-            }}
-            resizeMode={'contain'}
-            source={{
-              uri: 'https://v.redd.it/cg4wkwi9p2v91/DASH_1080.mp4?source=fallback',
-            }}
-            style={styles.backgroundVideo}
-          />
-        ) : <Image source={{uri: mediaULR}} style={styles.bgMedia} />}
+        {shouldShow && (<Video
+          ref={(ref) => {
+            this.player = ref;
+          }}
+          resizeMode={'contain'}
+          source={{
+            uri: 'https://v.redd.it/cg4wkwi9p2v91/DASH_1080.mp4?source=fallback',
+          }}
+          style={styles.backgroundVideo}
+        />)}
+
+        {/*{shouldShow ? (*/}
+        {/*  <Video*/}
+        {/*    ref={(ref) => {*/}
+        {/*      this.player = ref;*/}
+        {/*    }}*/}
+        {/*    resizeMode={'contain'}*/}
+        {/*    source={{*/}
+        {/*      uri: 'https://v.redd.it/cg4wkwi9p2v91/DASH_1080.mp4?source=fallback',*/}
+        {/*    }}*/}
+        {/*    style={styles.backgroundVideo}*/}
+        {/*  />*/}
+        {/*) : <Image source={{uri: mediaULR}} style={styles.bgMedia} />}*/}
       </React.Fragment>
 
       <View style={styles.actionIconContainer}>
@@ -50,7 +60,7 @@ const Post = ({item, shouldShow}) => {
   );
 };
 
-export default React.memo(Post);
+export default Post;
 
 const styles = StyleSheet.create({
   container: {

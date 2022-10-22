@@ -1,11 +1,11 @@
 import React, {PureComponent} from 'react';
-import LoginPage from './screens/LoginPage';
-import {handleLogin} from './redux/actions/login.actions';
+import LoginPage from './LoginPage';
+import {handleLogin} from '../../../redux/actions/login.actions';
 import {connect} from 'react-redux';
-import {getProfile} from './redux/actions/profile.actions';
+import {getProfile} from '../../../redux/actions/profile.actions';
 import {authorize} from 'react-native-app-auth';
-import {config} from './services/reddit.service';
-import {ACCESS_TOKEN, storage} from './utils/storage';
+import {config} from '../../../services/reddit.service';
+import {ACCESS_TOKEN, storage} from '../../../utils/storage';
 import PropTypes from 'prop-types';
 
 class LoginContainer extends PureComponent {

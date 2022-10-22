@@ -15,6 +15,9 @@ const Loader = ({size, isLoading, color}) => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
     paddingVertical: 16,
   },
 });
@@ -25,6 +28,6 @@ Loader.propTypes = {
 };
 Loader.defaultProps = {
   color: Colors.primaryColor,
-  size: PropTypes.oneOf(['large' , 'small']),
+  size: PropTypes.oneOf(['large', 'small']),
 };
 export default Loader;
