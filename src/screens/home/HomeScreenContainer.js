@@ -11,10 +11,18 @@ const HomeScreenContainer = (props) => {
     props.getPosts();
   }, []);
 
-  return props.posts ? <HomeScreen {...props} /> : <LoginPage />;
+  const onFilterByCategory = (val) => {
+    props.getPosts(val);
+  };
+
+  return props.posts ? (
+    <HomeScreen {...props} onFilterByCategory={onFilterByCategory} />
+  ) : (
+    <LoginPage />
+  );
 };
 
-const mapStateToProps = ({homeFeed, login}) => {
+const mapStateToProps = ({homeFeed}) => {
   return {
     posts: homeFeed.data,
     isLoading: homeFeed.isLoading,
@@ -24,7 +32,7 @@ const mapStateToProps = ({homeFeed, login}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getPosts: () => dispatch(fetchPosts()),
+    getPosts: (val) => dispatch(fetchPosts(val)),
   };
 };
 

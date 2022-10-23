@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {ActivityIndicator, StyleSheet, View} from 'react-native';
-import {Colors} from '../theme/Colors';
+import {Colors} from 'theme/Colors';
 
 const Loader = ({size, isLoading, color}) => {
   return (

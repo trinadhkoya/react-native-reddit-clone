@@ -4,6 +4,8 @@ const Colors = {
   btnText: '#ffffff',
   btnPrimary: '#1c1c1c',
 
+  btnSecondary: '#1c1c1c',
+
   textSecondary: 'rgb(120, 124, 126)',
   txtPrimary: '#222222',
 

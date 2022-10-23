@@ -23,10 +23,10 @@ const fetchPostsFailed = (error) => {
   };
 };
 
-const fetchPosts = () => async (dispatch) => {
+const fetchPosts = (val) => async (dispatch) => {
   dispatch(fetchPostsRequest());
   try {
-    const res = await PostsService.getPosts();
+    const res = await PostsService.getPosts(val);
     dispatch(fetchPostsSuccess(res.data));
   } catch (err) {
     dispatch(fetchPostsFailed(err));
