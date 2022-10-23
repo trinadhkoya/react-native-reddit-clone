@@ -2,13 +2,15 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import DisplayPic from 'ui-kit/DisplayPic';
 import HeadDesc from 'ui-kit/HeadDesc';
-import {getReadableTime} from 'utils';
+import {getReadableTime, getProp} from 'utils';
 
 const ProfileScreen = ({profile}) => {
+  const profileIcon = getProp(profile, 'subreddit.icon_img', '');
+  const profileName = getProp(profile, 'name', '');
   return (
     <View style={{flexDirection: 'column'}}>
       <React.Fragment>
-        <DisplayPic avatarInfo={profile} />
+        <DisplayPic icon_img={profileIcon} display_name={profileName} />
         <View style={styles.karmaContainer}>
           <HeadDesc headerName={'Post'} headerValue={profile?.link_karma} />
           <HeadDesc headerName={'Comments'} headerValue={profile?.comment_karma} />

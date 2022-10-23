@@ -1,26 +1,27 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
-import {getProp} from 'utils';
 
 const PLACEHOLDER_IMG = 'https://www.redditstatic.com/avatars/defaults/v2/avatar_default_3.png';
 
-const DisplayPic = ({avatarInfo}) => {
-  const avatarURL = getProp(avatarInfo, 'subreddit?.icon_img', PLACEHOLDER_IMG);
-  const userName = getProp(avatarInfo, 'name', 'Guest');
-
+const DisplayPic = (props) => {
   return (
     <View style={styles.container}>
       <Image
-        source={{uri: avatarURL}}
+        source={{uri: props.icon_img}}
         style={styles.avatar}
       />
-      <Text style={styles.username}>{userName}</Text>
+      <Text style={styles.username}>{props.display_name}</Text>
     </View>
   );
 };
+DisplayPic.defaultProps = {
+  display_name: 'guest',
+  icon_img: PropTypes.string,
+};
 DisplayPic.propTypes = {
-  avatarInfo: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
+  display_name: PropTypes.string,
+  icon_img: PropTypes.string,
 };
 const styles = StyleSheet.create({
   container: {
