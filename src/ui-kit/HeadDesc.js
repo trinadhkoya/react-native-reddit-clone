@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-const HeadDesc = ({headerName='', headerValue=''}) => {
+const HeadDesc = ({headerName = '', headerValue = ''}) => {
   return (
     <View style={{flexDirection: 'column', alignItems: 'center'}}>
       <Text style={styles.head}>{headerName}</Text>
@@ -17,13 +17,16 @@ HeadDesc.propTypes = {
 };
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'column', alignItems: 'center',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   head: {
-    fontSize: 15, fontWeight: '500',
+    fontSize: 15,
+    fontWeight: '500',
   },
   value: {
-    fontSize: 16, fontWeight: '500',
+    fontSize: 16,
+    fontWeight: '500',
   },
 });
 export default HeadDesc;

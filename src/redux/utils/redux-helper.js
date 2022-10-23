@@ -11,4 +11,3 @@ export const reduxHelper = (actionName) => {
     actionFailure,
   };
 };
-

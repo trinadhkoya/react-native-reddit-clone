@@ -5,7 +5,7 @@ const images = {
   comment: require('./comment.png'),
   share: require('./share.png'),
   profile: require('./profile.png'),
-  brandLogo:require('./redditLogo.png')
+  brandLogo: require('./redditLogo.png'),
 };
 
 export default images;

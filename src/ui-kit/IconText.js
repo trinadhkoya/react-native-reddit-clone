@@ -4,14 +4,12 @@ import {Image, StyleSheet, Text, View} from 'react-native';
 import images from '../assets/images';
 import {postCount} from '../utils';
 
-const IconText = props => {
+const IconText = (props) => {
   const {icon, value} = props;
   return (
     <View style={styles.container}>
       <Image source={icon} style={styles.actionIcon} />
-      <Text style={styles.actionIconText}>
-        {postCount(value)}
-      </Text>
+      <Text style={styles.actionIconText}>{postCount(value)}</Text>
     </View>
   );
 };
@@ -25,7 +23,8 @@ IconText.defaultProps = {
 };
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row', justifyContent: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   actionIconText: {
     paddingHorizontal: 5,

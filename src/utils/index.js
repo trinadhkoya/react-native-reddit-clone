@@ -17,7 +17,7 @@ const postCount = (count) => {
  * @param defaultValue
  * @returns {`${number}hr`|`${number}month`|`${number}day`|`${number}yr`}
  */
-const getReadableTime = (UNIX_timestamp='',defaultValue='') => {
+const getReadableTime = (UNIX_timestamp = '', defaultValue = '') => {
   const a = new Date(UNIX_timestamp * 1000);
   const b = new Date().getTime();
   const value = Math.floor(Math.abs(b - a) / 3600000);

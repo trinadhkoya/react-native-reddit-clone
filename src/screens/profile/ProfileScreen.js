@@ -13,12 +13,17 @@ const ProfileScreen = ({profile}) => {
         <DisplayPic icon_img={profileIcon} display_name={profileName} />
         <View style={styles.karmaContainer}>
           <HeadDesc headerName={'Post'} headerValue={profile?.link_karma} />
-          <HeadDesc headerName={'Comments'} headerValue={profile?.comment_karma} />
-          <HeadDesc headerName={'Age'} headerValue={getReadableTime(profile?.created_utc)} />
+          <HeadDesc
+            headerName={'Comments'}
+            headerValue={profile?.comment_karma}
+          />
+          <HeadDesc
+            headerName={'Age'}
+            headerValue={getReadableTime(profile?.created_utc)}
+          />
         </View>
       </React.Fragment>
     </View>
-
   );
 };
 
@@ -29,6 +34,5 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
   },
 });
-
 
 export default ProfileScreen;

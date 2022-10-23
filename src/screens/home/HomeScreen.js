@@ -11,6 +11,7 @@ import Post from 'screens/home/components/Post';
 import {Colors} from 'theme/Colors';
 import Divider from 'ui-kit/Divider';
 import Loader from 'ui-kit/Loader';
+import Video from 'react-native-video';
 
 const listItemHeight = SCREEN_WIDTH / 3;
 const centerYStart = SCREEN_HT / 5;
@@ -42,20 +43,33 @@ const HomeScreen = (props) => {
           data={props.posts}
           renderItem={({index, item}) => (
             <IndexProvider index={index}>
-              {() => {
-                return (
+              {() =>
+                item?.data?.is_video ? (
                   <InCenterConsumer>
                     {({isInCenter}) => (
-                      <Post item={item} shouldShow={isInCenter} />
+                      <Video
+                        resizeMode={'contain'}
+                        controls={false}
+                        source={{
+                          uri: item?.data?.media?.reddit_video?.fallback_url,
+                        }}
+                        style={{
+                          height: SCREEN_HT * 0.25,
+                          width: SCREEN_WIDTH,
+                        }}
+                        paused={!isInCenter}
+                      />
                     )}
                   </InCenterConsumer>
-                );
-              }}
+                ) : (
+                  <Post item={item} />
+                )
+              }
             </IndexProvider>
           )}
           ItemSeparatorComponent={_ItemSeparatorComponent}
-          removeClippedSubviews={true}
-          onEndReachedThreshold={0.6}
+          removeClippedSubviews
+          onEndReachedThreshold={1}
           keyExtractor={(item, index) => index.toString()}
           maxToRenderPerBatch={5}
           initialNumToRender={5}

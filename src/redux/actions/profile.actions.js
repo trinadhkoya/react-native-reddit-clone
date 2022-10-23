@@ -22,7 +22,6 @@ const fetchProfileFailed = (error) => {
   };
 };
 
-
 const getProfile = () => async (dispatch) => {
   dispatch(fetchProfileRequest());
   try {
@@ -32,7 +31,6 @@ const getProfile = () => async (dispatch) => {
     dispatch(fetchProfileFailed(err));
   }
 };
-
 
 export {
   fetchProfileRequest,

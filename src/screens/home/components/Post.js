@@ -1,37 +1,19 @@
 import images from 'assets/images';
 import React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
-import Video from 'react-native-video';
 import {Colors} from 'theme/Colors';
 import IconText from 'ui-kit/IconText';
-import {postCount, getProp} from 'utils';
+import {postCount} from 'utils';
 import {SCREEN_HT, SCREEN_WIDTH} from 'utils/screen.utils';
 import PostHeaderSection from './PostHeaderSection';
 
-const Post = ({item, shouldShow}) => {
-  const mediaULR = getProp(item?.data, 'thumbnail');
-
+const Post = ({item}) => {
   return (
     <View style={styles.container}>
+      {/** START OF HEADER SEC**/}
       <PostHeaderSection post={item?.data} />
       <Text style={styles.mainTitle}>{item?.data?.title}</Text>
-      <React.Fragment>
-        {shouldShow ? (
-          <Video
-            ref={(ref) => {
-              this.player = ref;
-            }}
-            resizeMode={'contain'}
-            source={{
-              uri: 'https://v.redd.it/cg4wkwi9p2v91/DASH_1080.mp4?source=fallback',
-            }}
-            style={styles.backgroundVideo}
-          />
-        ) : (
-          <Image source={{uri: mediaULR}} style={styles.bgMedia} />
-        )}
-      </React.Fragment>
-
+      {/** START OF RE-ACTIONS SEC**/}
       <View style={styles.actionIconContainer}>
         <View style={{flexDirection: 'row'}}>
           <React.Fragment>
@@ -114,7 +96,6 @@ const styles = StyleSheet.create({
   bgMedia: {
     height: SCREEN_HT * 0.2,
     width: SCREEN_WIDTH,
-    zIndex: -1,
     resizeMode: 'cover',
   },
 });

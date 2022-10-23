@@ -6,7 +6,6 @@ import ProfileScreen from 'screens/profile/ProfileScreen';
 import Loader from 'ui-kit/Loader';
 
 function ProfileContainer({dispatch, isLoading, profile}) {
-
   const boundActionCreators = useMemo(
     () => bindActionCreators(ProfileActionCreators, dispatch),
     [dispatch],
@@ -18,9 +17,9 @@ function ProfileContainer({dispatch, isLoading, profile}) {
   }, []);
 
   if (isLoading) {
-    return <Loader isLoading={isLoading} size={'large'}></Loader>;
+    return <Loader isLoading={isLoading} size={'large'} />;
   }
-  return <ProfileScreen profile={profile} {...boundActionCreators}></ProfileScreen>;
+  return <ProfileScreen profile={profile} {...boundActionCreators} />;
 }
 
 const mapStateToProps = (state) => {
@@ -30,4 +29,3 @@ const mapStateToProps = (state) => {
   };
 };
 export default connect(mapStateToProps)(ProfileContainer);
-
