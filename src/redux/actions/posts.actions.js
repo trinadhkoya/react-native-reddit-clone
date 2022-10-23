@@ -23,7 +23,6 @@ const fetchPostsFailed = (error) => {
   };
 };
 
-
 const fetchPosts = () => async (dispatch) => {
   dispatch(fetchPostsRequest());
   try {
@@ -33,6 +32,5 @@ const fetchPosts = () => async (dispatch) => {
     dispatch(fetchPostsFailed(err));
   }
 };
-
 
 export {fetchPostsFailed, fetchPostsRequest, fetchPostsSuccess, fetchPosts};

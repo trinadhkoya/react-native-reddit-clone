@@ -12,7 +12,7 @@ const MainNavigator = () => {
         screenOptions={{
           headerShown: false,
         }}
-        name='Home'
+        name="Home"
         component={DashBoardTabs}
       />
     </Stack.Navigator>

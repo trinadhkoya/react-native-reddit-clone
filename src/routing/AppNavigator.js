@@ -8,7 +8,6 @@ import useIsAuthenticated from 'hooks/useLoggedIn';
 
 const AppNavigator = ({isLoggedIn}) => {
   const [token] = useIsAuthenticated(isLoggedIn);
-
   return token ? <MainNavigator /> : <LoginContainer />;
 };
 

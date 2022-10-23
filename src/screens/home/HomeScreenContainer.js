@@ -3,20 +3,32 @@ import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import LoginPage from 'screens/auth/LoginPage';
 
-import RedditPosts from 'screens/home/HomeScreen';
+import HomeScreen from 'screens/home/HomeScreen';
+import {fetchPosts} from 'redux/actions/posts.actions';
 
-const HomeScreenContainer = ({posts}) => {
+const HomeScreenContainer = (props) => {
   useEffect(() => {
-  }, [posts]);
-  return posts ? <RedditPosts /> : <LoginPage />;
+    props.getPosts();
+  }, []);
+
+  return props.posts ? <HomeScreen {...props} /> : <LoginPage />;
 };
 
 const mapStateToProps = ({homeFeed, login}) => {
   return {
     posts: homeFeed.data,
+    isLoading: homeFeed.isLoading,
     error: homeFeed.error,
-    isLoggedIn: login.isLoggedIn,
   };
 };
 
-export default connect(mapStateToProps, null)(HomeScreenContainer);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getPosts: () => dispatch(fetchPosts()),
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(HomeScreenContainer);

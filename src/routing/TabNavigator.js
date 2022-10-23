@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import {Colors} from 'theme/Colors';
 import images from 'assets/images';
 import ProfileContainer from 'screens/profile/ProfileContainer';
-import HomeScreen from 'screens/home/HomeScreen';
+import HomeScreenContainer from 'screens/home/HomeScreenContainer';
 
 const TabNavigator = ({navigation, profile, isLoggedIn}) => {
   const Tab = createBottomTabNavigator();
@@ -35,35 +35,39 @@ const TabNavigator = ({navigation, profile, isLoggedIn}) => {
         inactiveTintColor: Colors.iconTint,
         activeTintColor: Colors.primaryColor,
       }}
-
-      screenOptions={
-        ({route}) => ({
-          tabBarIcon: ({focused}) => {
-            let iconName;
-            if (route.name === 'Home') {
-              iconName = images.home;
-            } else if (route.name === 'Profile') {
-              iconName = images.profile;
-            }
-            return <Image style={[styles.image, {tintColor: focused ? Colors.primaryColor : Colors.iconTint}]}
-                          source={iconName} />;
-          },
-        })
-      }>
+      screenOptions={({route}) => ({
+        tabBarIcon: ({focused}) => {
+          let iconName;
+          if (route.name === 'Home') {
+            iconName = images.home;
+          } else if (route.name === 'Profile') {
+            iconName = images.profile;
+          }
+          return (
+            <Image
+              style={[
+                styles.image,
+                {tintColor: focused ? Colors.primaryColor : Colors.iconTint},
+              ]}
+              source={iconName}
+            />
+          );
+        },
+      })}>
       <Tab.Screen
         options={({route}) => ({
           headerTitle: userName ? userName : getHeaderTitle(route),
         })}
-        name='Home'
+        name="Home"
         navigation={navigation}
-        component={HomeScreen} />
+        component={HomeScreenContainer}
+      />
       <Tab.Screen
-        name='Profile'
+        name="Profile"
         component={ProfileContainer}
         options={({route}) => ({
           headerTitle: userName ? userName : getHeaderTitle(route),
         })}
-
       />
     </Tab.Navigator>
   );

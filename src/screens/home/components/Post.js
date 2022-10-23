@@ -8,7 +8,6 @@ import {postCount, getProp} from 'utils';
 import {SCREEN_HT, SCREEN_WIDTH} from 'utils/screen.utils';
 import PostHeaderSection from './PostHeaderSection';
 
-
 const Post = ({item, shouldShow}) => {
   const mediaULR = getProp(item?.data, 'thumbnail');
 
@@ -17,7 +16,6 @@ const Post = ({item, shouldShow}) => {
       <PostHeaderSection post={item?.data} />
       <Text style={styles.mainTitle}>{item?.data?.title}</Text>
       <React.Fragment>
-
         {shouldShow ? (
           <Video
             ref={(ref) => {
@@ -29,19 +27,27 @@ const Post = ({item, shouldShow}) => {
             }}
             style={styles.backgroundVideo}
           />
-        ) : <Image source={{uri: mediaULR}} style={styles.bgMedia} />}
+        ) : (
+          <Image source={{uri: mediaULR}} style={styles.bgMedia} />
+        )}
       </React.Fragment>
 
       <View style={styles.actionIconContainer}>
         <View style={{flexDirection: 'row'}}>
           <React.Fragment>
-            <IconText icon={images.upvote} value={postCount(item?.data?.ups)}></IconText>
-            <IconText icon={images.downvote} value={postCount(item?.data?.downs)}></IconText>
+            <IconText icon={images.upvote} value={postCount(item?.data?.ups)} />
+            <IconText
+              icon={images.downvote}
+              value={postCount(item?.data?.downs)}
+            />
           </React.Fragment>
           <IconText data={item?.data} icon={images.comment} />
         </View>
         <React.Fragment>
-          <IconText icon={images.comment} value={postCount(item?.data?.num_comments)}></IconText>
+          <IconText
+            icon={images.comment}
+            value={postCount(item?.data?.num_comments)}
+          />
         </React.Fragment>
         <React.Fragment>
           <Image source={images.share} style={styles.actionIcon} />

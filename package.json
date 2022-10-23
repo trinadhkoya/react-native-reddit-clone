@@ -7,7 +7,8 @@
     "ios": "react-native run-ios --simulator=\"iPhone 13\"",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "pod": "cd ios && arch -x86_64 pod install"
   },
   "dependencies": {
     "@n1ru4l/react-in-center-of-screen": "1.0.0-alpha.4",

@@ -1,11 +1,12 @@
-const axios = require('axios');
 import {storage} from 'utils/storage.utils';
+
+const axios = require('axios');
 
 const BASE_URL = 'https://oauth.reddit.com/';
 
 const HEADERS = {
   'Content-Type': 'application/json; charset=utf-8',
-  'Accept': 'application/json',
+  Accept: 'application/json',
 };
 
 const HTTPClient = axios.create({
@@ -13,24 +14,23 @@ const HTTPClient = axios.create({
   headers: HEADERS,
 });
 
-HTTPClient.interceptors.request.use(config => {
+HTTPClient.interceptors.request.use((config) => {
   const token = storage.getString('ACCESS_TOKEN');
   config.headers.Authorization = token ? `Bearer ${token}` : '';
   return config;
 });
 HTTPClient.interceptors.response.use(
-  function(response) {
+  function (response) {
     return response;
   },
-  function(error) {
+  function (error) {
     let res = error.response;
     if (res.status === 401) {
       //TODO: If we define app reducer, we can display error state
     }
-    console.error(`Looks like there was a problem. Status Code:` + res.status);
+    console.error('Looks like there was a problem. Status Code:' + res.status);
     return Promise.reject(error);
   },
 );
-
 
 export {HTTPClient};

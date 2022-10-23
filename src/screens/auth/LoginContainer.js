@@ -11,7 +11,7 @@ import {ACCESS_TOKEN, storage} from 'utils/storage.utils';
 class LoginContainer extends PureComponent {
   onLogin = async () => {
     const token = await authorize(config);
-    storage.set(ACCESS_TOKEN, token.accessToken);
+    await storage.set(ACCESS_TOKEN, token.accessToken);
     this.props.doLogin(token.accessToken);
     this.props.doGetUserInfo();
   };
@@ -27,10 +27,8 @@ LoginContainer.propTypes = {
 };
 
 LoginContainer.defaultProps = {
-  doLogin: () => {
-  },
-  doGetUserInfo: () => {
-  },
+  doLogin: () => {},
+  doGetUserInfo: () => {},
 };
 
 const mapStateToProps = (state) => {
