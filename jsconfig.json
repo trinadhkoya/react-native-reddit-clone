@@ -1,6 +1,10 @@
 {
-  "name": "src",
-  "version": "1.0.0",
-  "dependencies": {
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "src/*"
+      ]
+    }
   }
 }
