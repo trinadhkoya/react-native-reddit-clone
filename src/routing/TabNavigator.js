@@ -1,12 +1,12 @@
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
 import React from 'react';
 import {Image, StyleSheet} from 'react-native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {connect} from 'react-redux';
-import images from '../res/images';
-import HomeScreen from '../screens/main/home/HomeScreenContainer';
-import {Colors} from '../theme/Colors';
-import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
-import ProfileContainer from '../screens/main/profile/ProfileContainer';
+import {Colors} from 'theme/Colors';
+import images from 'assets/images';
+import ProfileContainer from 'screens/profile/ProfileContainer';
+import HomeScreen from 'screens/home/HomeScreen';
 
 const TabNavigator = ({navigation, profile, isLoggedIn}) => {
   const Tab = createBottomTabNavigator();

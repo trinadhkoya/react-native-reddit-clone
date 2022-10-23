@@ -1,7 +1,6 @@
 export const BASE_URL = 'https://www.reddit.com/api/v1/';
 const OAUTH2_REDIRECT = 'com.redditech://oauth2redirect/reddit';
 const REDDIT_CLIENT_SECRET = 'fcafYt6_OhrlQEN6NTTyUQ';
-export const BASE_URL2 = 'https://www.reddit.com/api/v1/';
 
 const config = {
   redirectUrl: OAUTH2_REDIRECT,

@@ -1,5 +1,5 @@
-import {reduxHelper} from '../utils/redux-helper';
-import {USER_LOGIN, USER_LOGOUT} from '../actions/types';
+import {USER_LOGIN, USER_LOGOUT} from 'redux/actions/types';
+import {reduxHelper} from 'redux/utils/redux-helper';
 
 const initialState = {
   isLoggedIn: false,

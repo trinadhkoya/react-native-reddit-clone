@@ -1,8 +1,8 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
-import {postCount} from '../utils';
-import React from 'react';
 import PropTypes from 'prop-types';
-import images from '../res/images';
+import React from 'react';
+import {Image, StyleSheet, Text, View} from 'react-native';
+import images from '../assets/images';
+import {postCount} from '../utils';
 
 const IconText = props => {
   const {icon, value} = props;
@@ -17,7 +17,7 @@ const IconText = props => {
 };
 IconText.propTypes = {
   icon: PropTypes.number,
-  value: PropTypes.oneOfType([PropTypes.string,PropTypes.number]),
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 IconText.defaultProps = {
   icon: images.home,

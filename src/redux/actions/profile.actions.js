@@ -1,6 +1,6 @@
-import {reduxHelper} from '../utils/redux-helper';
-import {FETCH_USER_INFO} from './types';
-import ProfileServices from '../../services/profile.service';
+import ProfileService from 'services/profile.service';
+import {reduxHelper} from 'redux/utils/redux-helper';
+import {FETCH_USER_INFO} from 'redux/actions/types';
 
 const fetchProfileRequest = () => {
   return {
@@ -23,17 +23,15 @@ const fetchProfileFailed = (error) => {
 };
 
 
-
 const getProfile = () => async (dispatch) => {
   dispatch(fetchProfileRequest());
   try {
-    const res = await ProfileServices.getProfile();
+    const res = await ProfileService.getProfile();
     dispatch(fetchProfileSuccess(res));
   } catch (err) {
     dispatch(fetchProfileFailed(err));
   }
 };
-
 
 
 export {

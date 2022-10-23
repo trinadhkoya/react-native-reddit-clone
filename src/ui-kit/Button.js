@@ -1,7 +1,7 @@
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
-import React from 'react';
 import PropTypes from 'prop-types';
-import {SCREEN_WIDTH} from '../screen.utils';
+import React from 'react';
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {SCREEN_WIDTH} from 'utils/screen.utils';
 import {Colors} from '../theme/Colors';
 
 const Button = ({onPress, title}) => {

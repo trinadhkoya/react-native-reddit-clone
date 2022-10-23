@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 
 import {connect} from 'react-redux';
-import LoginPage from '../auth/LoginPage';
+import LoginPage from 'screens/auth/LoginPage';
 
-import RedditPosts from './HomeScreen';
+import RedditPosts from 'screens/home/HomeScreen';
 
 const HomeScreenContainer = ({posts}) => {
   useEffect(() => {

@@ -1,14 +1,14 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
-import {Colors} from '../../../theme/Colors';
-import Button from '../../../ui-kit/Button';
-import PropTypes from 'prop-types';
+import {Colors} from 'theme/Colors';
+import Button from 'ui-kit/Button';
 
 const LoginPage = ({onPressLogin = undefined}) => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../../../res/images/redditLogo.png')}
+        source={require('../../assets/images/redditLogo.png')}
         style={styles.brandImg}
       />
       <Text style={styles.themeText}>Dive into anything</Text>

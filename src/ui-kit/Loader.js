@@ -1,6 +1,6 @@
-import {ActivityIndicator, StyleSheet, View} from 'react-native';
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
+import {ActivityIndicator, StyleSheet, View} from 'react-native';
 import {Colors} from '../theme/Colors';
 
 const Loader = ({size, isLoading, color}) => {

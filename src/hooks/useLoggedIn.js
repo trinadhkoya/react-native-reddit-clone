@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {ACCESS_TOKEN, storage} from '../utils/storage';
+import {ACCESS_TOKEN, storage} from 'utils/storage.utils';
 
 export default function useIsAuthenticated() {
   const getToken = () => {

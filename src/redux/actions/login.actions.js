@@ -1,8 +1,8 @@
-import {USER_LOGIN, USER_LOGOUT} from './types';
-import {reduxHelper} from '../utils/redux-helper';
 import {authorize} from 'react-native-app-auth';
-import {config} from '../../services/reddit.service';
-import {ACCESS_TOKEN, storage} from '../../utils/storage';
+import {config} from 'services/reddit.service';
+import {ACCESS_TOKEN, storage} from 'utils/storage.utils';
+import {reduxHelper} from 'redux/utils/redux-helper';
+import {USER_LOGIN, USER_LOGOUT} from 'redux/actions/types';
 
 const userLogin = (data) => ({
   type: reduxHelper(USER_LOGIN).actionSuccess,
@@ -24,8 +24,6 @@ const handleLogout = () => (dispatch) => {
 const onLogin = async () => {
   const token = await authorize(config);
   storage.set(ACCESS_TOKEN, token.accessToken);
-  // this.props.doLogin(token.accessToken);
-  // this.props.doGetUserInfo(token.accessToken);
 };
 
 export {userLogin, userLogout, handleLogin, handleLogout};

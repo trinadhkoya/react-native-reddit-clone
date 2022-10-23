@@ -1,32 +1,31 @@
-import {reduxHelper} from '../utils/redux-helper';
-import {FETCH_USER_INFO} from '../actions/types';
+import {FETCH_USER_INFO} from 'redux/actions/types';
+import {reduxHelper} from 'redux/utils/redux-helper';
 
 const initialState = {
-  loading: false,
+  isLoading: false,
   data: [],
   error: '',
 };
 
 export default (state = initialState, action) => {
-  switch (action.type) {
-    case reduxHelper(FETCH_USER_INFO).actionRequest:
-      return {
-        ...state,
-        loading: true,
-      };
-    case reduxHelper(FETCH_USER_INFO).actionSuccess:
-      return {
-        ...state,
-        loading: false,
-        data: action.payload,
-      };
-    case reduxHelper(FETCH_USER_INFO).actionFailure:
-      return {
-        ...state,
-        loading: false,
-        error: action.payload,
-      };
-    default:
-      return state;
+  if (action.type === reduxHelper(FETCH_USER_INFO).actionRequest) {
+    return {
+      ...state,
+      isLoading: true,
+    };
+  } else if (action.type === reduxHelper(FETCH_USER_INFO).actionSuccess) {
+    return {
+      ...state,
+      isLoading: false,
+      data: action.payload,
+    };
+  } else if (action.type === reduxHelper(FETCH_USER_INFO).actionFailure) {
+    return {
+      ...state,
+      isLoading: false,
+      error: action.payload,
+    };
+  } else {
+    return state;
   }
 };

@@ -1,5 +1,5 @@
 const axios = require('axios');
-import {storage} from '../utils/storage';
+import {storage} from 'utils/storage.utils';
 
 const BASE_URL = 'https://oauth.reddit.com/';
 

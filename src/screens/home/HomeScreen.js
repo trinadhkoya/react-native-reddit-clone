@@ -1,15 +1,15 @@
+import {InCenterConsumer, IndexProvider, OffsetYProvider} from '@n1ru4l/react-in-center-of-screen';
 import React, {useEffect} from 'react';
 import {FlatList} from 'react-native';
 
 import {connect} from 'react-redux';
+import {fetchPosts} from 'redux/actions/posts.actions';
+import {SCREEN_HT, SCREEN_WIDTH} from 'utils/screen.utils';
 
-import Post from '../../../shared/posts/Post';
-import Divider from '../../../ui-kit/Divider';
-import {fetchPosts} from '../../../redux/actions/homefeed.actions';
-import Loader from '../../../ui-kit/Loader';
-import {Colors} from '../../../theme/Colors';
-import {InCenterConsumer, IndexProvider, OffsetYProvider} from '@n1ru4l/react-in-center-of-screen';
-import {SCREEN_HT, SCREEN_WIDTH} from '../../../screen.utils';
+import Post from 'shared/posts/Post';
+import {Colors} from 'theme/Colors';
+import Divider from 'ui-kit/Divider';
+import Loader from 'ui-kit/Loader';
 
 
 const listItemHeight = SCREEN_WIDTH / 3;
@@ -72,7 +72,7 @@ const HomeScreen = (props) => {
 const mapStateToProps = ({homeFeed, login}) => {
   return {
     posts: homeFeed.data,
-    isLoading: homeFeed.loading,
+    isLoading: homeFeed.isLoading,
     error: homeFeed.error,
   };
 };

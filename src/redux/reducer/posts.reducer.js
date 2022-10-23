@@ -1,8 +1,8 @@
-import {FETCH_POSTS} from '../actions/types';
-import {reduxHelper} from '../utils/redux-helper';
+import {FETCH_POSTS} from 'redux/actions/types';
+import {reduxHelper} from 'redux/utils/redux-helper';
 
 const initialState = {
-  loading: false,
+  isLoading: false,
   data: [],
   error: '',
   after: null,
@@ -13,12 +13,12 @@ export default (state = initialState, action) => {
     case reduxHelper(FETCH_POSTS).actionRequest:
       return {
         ...state,
-        loading: true,
+        isLoading: true,
       };
     case reduxHelper(FETCH_POSTS).actionSuccess:
       return {
         ...state,
-        loading: false,
+        isLoading: false,
         data: action.payload,
         after: action.after,
         error: '',
@@ -26,7 +26,7 @@ export default (state = initialState, action) => {
     case reduxHelper(FETCH_POSTS).actionFailure:
       return {
         ...state,
-        loading: false,
+        isLoading: false,
         error: action.payload,
       };
     default:

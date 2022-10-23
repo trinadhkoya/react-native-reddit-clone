@@ -1,12 +1,12 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import Dot from '../../ui-kit/Dot';
-import {Colors} from '../../theme/Colors';
-import PropTypes from 'prop-types';
-import {getReadableTime} from '../../utils';
+import {Colors} from 'theme/Colors';
+import {getReadableTime} from 'utils';
+import Dot from 'ui-kit/Dot';
 
 const PostHeaderSection = (props) => (
-  <>
+  <React.Fragment>
     <View style={styles.subRedditSec}>
       <Text style={styles.namePrefix}>
         {props?.post?.subreddit_name_prefixed}
@@ -20,7 +20,7 @@ const PostHeaderSection = (props) => (
         {getReadableTime(props.post?.created_utc)}
       </Text>
     </View>
-  </>
+  </React.Fragment>
 );
 
 PostHeaderSection.defaultProps = {

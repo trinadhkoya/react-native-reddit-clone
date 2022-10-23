@@ -1,8 +1,8 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import DisplayPic from '../../../ui-kit/DisplayPic';
-import HeadDesc from '../../../ui-kit/HeadDesc';
-import {getReadableTime} from '../../../utils';
+import DisplayPic from 'ui-kit/DisplayPic';
+import HeadDesc from 'ui-kit/HeadDesc';
+import {getReadableTime} from 'utils';
 
 const ProfileScreen = ({profile}) => {
   return (

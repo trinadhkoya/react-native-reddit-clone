@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import MainNavigator from './MainNavigator';
-import * as LoginActionCreators from '../redux/actions/login.actions';
-import LoginContainer from '../screens/main/auth/LoginContainer';
 import {bindActionCreators} from 'redux';
-import useIsAuthenticated from '../hooks/useLoggedIn';
+import LoginContainer from 'screens/auth/LoginContainer';
+import MainNavigator from 'routing/MainNavigator';
+import * as LoginActionCreators from 'redux/actions/login.actions';
+import useIsAuthenticated from 'hooks/useLoggedIn';
 
 const AppNavigator = ({isLoggedIn}) => {
   const [token] = useIsAuthenticated(isLoggedIn);

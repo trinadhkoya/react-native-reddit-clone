@@ -1,4 +1,4 @@
-const reduxHelper = (actionName) => {
+export const reduxHelper = (actionName) => {
   if (typeof actionName !== 'string') {
     throw new Error('actionName must be a string');
   }
@@ -12,4 +12,3 @@ const reduxHelper = (actionName) => {
   };
 };
 
-export {reduxHelper};

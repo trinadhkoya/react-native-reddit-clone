@@ -1,12 +1,12 @@
-import React, {PureComponent} from 'react';
-import LoginPage from './LoginPage';
-import {handleLogin} from '../../../redux/actions/login.actions';
-import {connect} from 'react-redux';
-import {getProfile} from '../../../redux/actions/profile.actions';
-import {authorize} from 'react-native-app-auth';
-import {config} from '../../../services/reddit.service';
-import {ACCESS_TOKEN, storage} from '../../../utils/storage';
 import PropTypes from 'prop-types';
+import React, {PureComponent} from 'react';
+import {authorize} from 'react-native-app-auth';
+import {connect} from 'react-redux';
+import {handleLogin} from 'redux/actions/login.actions';
+import {getProfile} from 'redux/actions/profile.actions';
+import LoginPage from 'screens/auth/LoginPage';
+import {config} from 'services/reddit.service';
+import {ACCESS_TOKEN, storage} from 'utils/storage.utils';
 
 class LoginContainer extends PureComponent {
   onLogin = async () => {

@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import PropTypes from 'prop-types';
 
 const HeadDesc = (props) => {
   return (
@@ -13,7 +13,7 @@ const HeadDesc = (props) => {
 
 HeadDesc.propTypes = {
   headerName: PropTypes.string.isRequired,
-  headerValue: PropTypes.oneOfType([PropTypes.string,PropTypes.number]).isRequired,
+  headerValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 const styles = StyleSheet.create({
   container: {
