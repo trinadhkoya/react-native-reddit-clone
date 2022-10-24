@@ -15,11 +15,7 @@ const HomeScreenContainer = (props) => {
     props.getPosts(val);
   };
 
-  return props.posts ? (
-    <HomeScreen {...props} onFilterByCategory={onFilterByCategory} />
-  ) : (
-    <LoginPage />
-  );
+  return <HomeScreen {...props} onFilterByCategory={onFilterByCategory} />;
 };
 
 const mapStateToProps = ({homeFeed}) => {

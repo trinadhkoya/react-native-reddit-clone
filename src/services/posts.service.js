@@ -1,8 +1,5 @@
-import {HTTPClient as API} from './HTTPClient';
+import {get} from './APIClient';
 
 export default {
-  getPosts: (query = 'SBU') =>
-    API.get(`r/${query}/new`).then((res) => {
-      return res?.data;
-    }),
+  getPosts: (query = 'SBU') => get(`r/${query}/new`),
 };

@@ -1,8 +1,5 @@
-import {HTTPClient as API} from './HTTPClient';
+import {get} from './APIClient';
 
 export default {
-  getProfile: () =>
-    API.get('api/v1/me').then((res) => {
-      return res && res.data;
-    }),
+  getProfile: () => get('api/v1/me'),
 };
