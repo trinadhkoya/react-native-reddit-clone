@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import LoginContainer from 'screens/auth/LoginContainer';
@@ -8,8 +8,7 @@ import useIsAuthenticated from 'hooks/useLoggedIn';
 
 const AppNavigator = ({isLoggedIn}) => {
   const token = useIsAuthenticated(isLoggedIn);
-
-  return token ? <MainNavigator /> : <LoginContainer />;
+  return token || isLoggedIn ? <MainNavigator /> : <LoginContainer />;
 };
 
 const mapStateToProps = ({login}) => {
