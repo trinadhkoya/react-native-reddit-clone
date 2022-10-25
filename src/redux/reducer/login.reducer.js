@@ -1,4 +1,4 @@
-import {USER_LOGIN, USER_LOGOUT} from 'redux/actions/types';
+import {USER_LOGIN, USER_LOGOUT} from 'redux/actions/actionTypes';
 import {reduxHelper} from 'redux/utils/redux-helper';
 
 const initialState = {

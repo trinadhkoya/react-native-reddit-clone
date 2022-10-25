@@ -1,4 +1,4 @@
-import {FETCH_USER_INFO} from 'redux/actions/types';
+import {FETCH_USER_INFO} from 'redux/actions/actionTypes';
 import {reduxHelper} from 'redux/utils/redux-helper';
 
 const initialState = {
