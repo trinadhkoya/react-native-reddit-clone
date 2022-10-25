@@ -3,9 +3,9 @@ import {USER_LOGIN} from 'redux/actions/actionTypes';
 import {reduxHelper} from 'redux/utils/redux-helper';
 import {userLogin} from "redux/actions/login.actions";
 
-function* onLoginRequest() {
+function* onLoginRequest({payload}) {
   try {
-    yield put(userLogin());
+    yield put(userLogin(payload.data));
   } catch (error) {
     // yield put(fetchPostsFailed(error.response));
   }

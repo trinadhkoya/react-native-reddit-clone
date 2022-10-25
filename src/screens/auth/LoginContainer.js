@@ -9,6 +9,7 @@ import {ACCESS_TOKEN, storage} from 'utils/storage.utils';
 import {userLogin} from "redux/actions/login.actions";
 
 class LoginContainer extends PureComponent {
+
   onLogin = async () => {
     const token = await authorize(config);
     await storage.set(ACCESS_TOKEN, token.accessToken);
