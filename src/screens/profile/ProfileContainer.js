@@ -2,9 +2,9 @@ import React, {useEffect, useMemo} from 'react';
 import {connect, useDispatch} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as ProfileActionCreators from 'redux/actions/profile.actions';
+import {fetchProfileRequest} from 'redux/actions/profile.actions';
 import ProfileScreen from 'screens/profile/ProfileScreen';
 import Loader from 'ui-kit/Loader';
-import {fetchProfileRequest} from 'redux/actions/profile.actions';
 
 function ProfileContainer({isLoading, profile}) {
   let dispatch = useDispatch();

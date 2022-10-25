@@ -1,8 +1,7 @@
 import {call, put, takeLatest} from 'redux-saga/effects';
-import {fetchPostsFailed} from 'redux/actions/posts.actions';
 import {FETCH_USER_INFO} from 'redux/actions/actionTypes';
 import {reduxHelper} from 'redux/utils/redux-helper';
-import {fetchProfileSuccess} from 'redux/actions/profile.actions';
+import {fetchProfileFailed, fetchProfileSuccess,} from 'redux/actions/profile.actions';
 import {getProfileInfo} from 'services/profile.service';
 
 function* onGetProfile() {
@@ -10,7 +9,7 @@ function* onGetProfile() {
     const response = yield call(getProfileInfo);
     yield put(fetchProfileSuccess(response));
   } catch (error) {
-    yield put(fetchPostsFailed(error.response));
+    yield put(fetchProfileFailed(error.response));
   }
 }
 

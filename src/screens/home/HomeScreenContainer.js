@@ -1,17 +1,18 @@
 import React, {useEffect} from 'react';
 
-import {connect} from 'react-redux';
+import {connect, useDispatch} from 'react-redux';
 
 import HomeScreen from 'screens/home/HomeScreen';
-import {fetchPosts, fetchPostsRequest} from 'redux/actions/posts.actions';
+import {fetchPostsRequest} from 'redux/actions/posts.actions';
 
 const HomeScreenContainer = (props) => {
+  const dispatch = useDispatch();
   useEffect(() => {
-    props.getPosts();
+    dispatch(fetchPostsRequest());
   }, []);
 
   const onFilterByCategory = (val) => {
-    props.getPosts(val);
+    dispatch(fetchPostsRequest(val));
   };
 
   return <HomeScreen {...props} onFilterByCategory={onFilterByCategory} />;
@@ -25,13 +26,4 @@ const mapStateToProps = ({homeFeed}) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getPosts: () => dispatch(fetchPostsRequest()),
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(HomeScreenContainer);
+export default connect(mapStateToProps)(HomeScreenContainer);

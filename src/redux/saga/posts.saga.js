@@ -4,9 +4,9 @@ import {getPosts} from 'services/posts.service';
 import {FETCH_POSTS} from 'redux/actions/actionTypes';
 import {reduxHelper} from 'redux/utils/redux-helper';
 
-function* onGetPosts() {
+function* onGetPosts({payload: query}) {
   try {
-    const response = yield call(getPosts);
+    const response = yield call(getPosts, query);
     yield put(fetchPostsSuccess(response.data));
   } catch (error) {
     yield put(fetchPostsFailed(error.response));

@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import DisplayPic from 'ui-kit/DisplayPic';
 import HeadDesc from 'ui-kit/HeadDesc';
-import {getReadableTime, getProp} from 'utils';
+import {getProp, getReadableTime} from 'utils';
 
 const ProfileScreen = ({profile}) => {
   const profileIcon = getProp(profile, 'subreddit.icon_img', '');

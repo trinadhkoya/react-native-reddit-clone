@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import {mainFeedReducer, loginReducer} from 'redux/reducer';
+import {loginReducer, mainFeedReducer} from 'redux/reducer';
 import profileReducer from 'redux/reducer/profile.reducer';
 
 const rootReducer = combineReducers({

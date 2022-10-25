@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
+
 const PLACEHOLDER_IMG =
   'https://www.redditstatic.com/avatars/defaults/v2/avatar_default_3.png';
 

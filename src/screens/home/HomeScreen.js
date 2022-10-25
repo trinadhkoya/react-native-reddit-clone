@@ -1,8 +1,4 @@
-import {
-  InCenterConsumer,
-  IndexProvider,
-  OffsetYProvider,
-} from '@n1ru4l/react-in-center-of-screen';
+import {InCenterConsumer, IndexProvider, OffsetYProvider,} from '@n1ru4l/react-in-center-of-screen';
 import React from 'react';
 import {FlatList, ScrollView} from 'react-native';
 import {SCREEN_HT, SCREEN_WIDTH} from 'utils/screen.utils';

@@ -3,7 +3,7 @@ import React, {PureComponent} from 'react';
 import {authorize} from 'react-native-app-auth';
 import {connect} from 'react-redux';
 import {handleLogin} from 'redux/actions/login.actions';
-import {getProfile} from 'redux/actions/profile.actions';
+import {fetchProfileRequest} from 'redux/actions/profile.actions';
 import LoginPage from 'screens/auth/LoginPage';
 import {config} from 'services/reddit.service';
 import {ACCESS_TOKEN, storage} from 'utils/storage.utils';
@@ -41,7 +41,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     doLogin: (data) => dispatch(handleLogin(data)),
-    doGetUserInfo: () => dispatch(getProfile()),
+    doGetUserInfo: () => dispatch(fetchProfileRequest()),
   };
 };
 

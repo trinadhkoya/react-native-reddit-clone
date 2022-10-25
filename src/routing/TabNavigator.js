@@ -15,17 +15,15 @@ const TabNavigator = ({navigation, profile, isLoggedIn}) => {
   userName = isLoggedIn ? profile?.name : 'Guest';
 
   function getHeaderTitle(route) {
-    // If the focused route is not found, we need to assume it's the initial screen
-    // This can happen during if there hasn't been any navigation inside the screen
-    // In our case, it's "Feed" as that's the first screen inside the navigator
-    const routeName = getFocusedRouteNameFromRoute(route) ?? 'Feed';
-
-    switch (routeName) {
-      case 'Home':
-        return 'Home';
-      case 'Profile':
-        return 'My profile';
-    }
+      // If the focused route is not found, we need to assume it's the initial screen
+      // This can happen during if there hasn't been any navigation inside the screen
+      // In our case, it's "Feed" as that's the first screen inside the navigator
+      const routeName = getFocusedRouteNameFromRoute(route) ?? 'Feed';
+      if (routeName === 'Home') {
+          return 'Home';
+      } else if (routeName === 'Profile') {
+          return 'My profile';
+      }
   }
 
   return (
