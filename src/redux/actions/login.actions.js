@@ -1,5 +1,5 @@
 import {reduxHelper} from 'redux/utils/redux-helper';
-import {USER_LOGIN, USER_LOGOUT} from 'redux/actions/types';
+import {USER_LOGIN, USER_LOGOUT} from 'redux/actions/actionTypes';
 
 const userLogin = (data) => ({
   type: reduxHelper(USER_LOGIN).actionSuccess,

@@ -1,6 +1,6 @@
 import {reduxHelper} from 'redux/utils/redux-helper';
-import {FETCH_POSTS} from 'redux/actions/types';
-import PostsService from 'services/posts.service';
+import {FETCH_POSTS} from 'redux/actions/actionTypes';
+import {getPosts} from 'services/posts.service';
 
 const fetchPostsRequest = () => {
   return {
@@ -26,7 +26,7 @@ const fetchPostsFailed = (error) => {
 const fetchPosts = (val) => async (dispatch) => {
   dispatch(fetchPostsRequest());
   try {
-    const res = await PostsService.getPosts(val);
+    const res = await getPosts(val);
     dispatch(fetchPostsSuccess(res.data));
   } catch (err) {
     dispatch(fetchPostsFailed(err));

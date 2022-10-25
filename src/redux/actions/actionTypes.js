@@ -1,4 +1,3 @@
-/*reduxHelper will take care of REQUEST,SUCCESS,FAILED. We just need to define the action name */
 const FETCH_POSTS = 'FETCH_POSTS';
 
 const USER_LOGIN = 'USER_LOGIN';

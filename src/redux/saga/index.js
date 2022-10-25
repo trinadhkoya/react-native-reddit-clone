@@ -1,6 +1,9 @@
 import {all, fork} from 'redux-saga/effects';
-import postsSaga from 'redux/saga/posts.saga';
+import PostsSaga from 'redux/saga/posts.saga';
+import ProfileSaga from 'redux/saga/profile.saga';
 
-export default function* rootSaga() {
-  yield all([fork(postsSaga)]);
-}
+const rootSaga = function* () {
+  yield all([fork(PostsSaga)]);
+  yield all([fork(ProfileSaga)]);
+};
+export default rootSaga;

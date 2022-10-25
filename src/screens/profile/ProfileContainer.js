@@ -1,19 +1,21 @@
 import React, {useEffect, useMemo} from 'react';
-import {connect} from 'react-redux';
+import {connect, useDispatch} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as ProfileActionCreators from 'redux/actions/profile.actions';
 import ProfileScreen from 'screens/profile/ProfileScreen';
 import Loader from 'ui-kit/Loader';
+import {fetchProfileRequest} from 'redux/actions/profile.actions';
 
-function ProfileContainer({dispatch, isLoading, profile}) {
+function ProfileContainer({isLoading, profile}) {
+  let dispatch = useDispatch();
+
   const boundActionCreators = useMemo(
     () => bindActionCreators(ProfileActionCreators, dispatch),
     [dispatch],
   );
 
   useEffect(() => {
-    let action = ProfileActionCreators.getProfile();
-    dispatch(action);
+    dispatch(fetchProfileRequest());
   }, []);
 
   if (isLoading) {

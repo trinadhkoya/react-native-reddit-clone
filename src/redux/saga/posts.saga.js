@@ -1,24 +1,20 @@
 import {call, put, takeLatest} from 'redux-saga/effects';
-import {
-  fetchPostsFailed,
-  fetchPostsRequest,
-  fetchPostsSuccess,
-} from 'redux/actions/posts.actions';
-import PostsService from 'services/posts.service';
-import {FETCH_POSTS} from 'redux/actions/types';
+import {fetchPostsFailed, fetchPostsSuccess} from 'redux/actions/posts.actions';
+import {getPosts} from 'services/posts.service';
+import {FETCH_POSTS} from 'redux/actions/actionTypes';
+import {reduxHelper} from 'redux/utils/redux-helper';
 
-function* onGetPosts({payload: id}) {
-  yield put(fetchPostsRequest());
+function* onGetPosts() {
   try {
-    const response = yield call(PostsService.getPosts(), id);
-    yield put(fetchPostsSuccess(response));
+    const response = yield call(getPosts);
+    yield put(fetchPostsSuccess(response.data));
   } catch (error) {
     yield put(fetchPostsFailed(error.response));
   }
 }
 
 function* PostsSaga() {
-  yield takeLatest(FETCH_POSTS, onGetPosts);
+  yield takeLatest(reduxHelper(FETCH_POSTS).actionRequest, onGetPosts);
 }
 
 export default PostsSaga;

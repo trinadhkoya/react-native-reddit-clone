@@ -1,10 +1,9 @@
 import React, {useEffect} from 'react';
 
 import {connect} from 'react-redux';
-import LoginPage from 'screens/auth/LoginPage';
 
 import HomeScreen from 'screens/home/HomeScreen';
-import {fetchPosts} from 'redux/actions/posts.actions';
+import {fetchPosts, fetchPostsRequest} from 'redux/actions/posts.actions';
 
 const HomeScreenContainer = (props) => {
   useEffect(() => {
@@ -28,7 +27,7 @@ const mapStateToProps = ({homeFeed}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getPosts: (val) => dispatch(fetchPosts(val)),
+    getPosts: () => dispatch(fetchPostsRequest()),
   };
 };
 
