@@ -39,9 +39,6 @@ Reddit Clone written in Bare React Native.
 ##### NOTE
 I have not tested this on android for time being. Please let me know if in case if you find any issues
 
-I am working on a fix, where user is not navigated to home after successful login attempt in the [saga](https://github.com/trinadhkoya/react-native-reddit-clone/tree/feature/with-saga
-) branch 
-
 For saga related work please check out [this](https://github.com/trinadhkoya/react-native-reddit-clone/tree/feature/with-saga
 ) branch. 
 
